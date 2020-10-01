@@ -277,4 +277,6 @@ TSWLatexianTemp*
 
 # My personal folders
 ./hw/*
+./hw/
 ./books/*
+./books/
