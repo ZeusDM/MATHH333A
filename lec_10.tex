@@ -1,0 +1,70 @@
+\lecture{10}{September 30, 2020}{Example of Quotients}
+
+From last time, we discussed the following theorem:
+
+\begin{thm} The following are equivalent:
+	\begin{enumerate}
+		\item $H \vartriangleleft G$;
+		\item $gHg^{-1} = H$, for any $g \in G$;
+		\item $gH = Hg$, for any  $g \in G$;
+		\item Every left coset of $H$ is a right coset of $H$.
+	\end{enumerate}
+\end{thm}
+
+\begin{dem}[$i$ $\implies$ $ii$]
+	$H \vartriangleleft G \implies \phi_g(H) \in H \implies gHg^{-1} \subset H$.
+	Analougously, $g^{-1}Hg \subset H$. This last one implies that $H \subset gHg^{-1}$.
+
+	Therefore,  $gHg^{-1} = H$.
+\end{dem}
+
+\begin{dem}[$ii \iff iii$]
+	$gHg^{-1} = H \iff gH = Hg$.
+\end{dem}
+
+\begin{dem}[$iii \implies iv$]
+	If $gH = Hg$, then  $gH$ is a right coset.
+\end{dem}
+
+\begin{dem}[$iv \implies iii$]
+	Assume that, given $aH$, then there is $b$ such that $aH = Hb$. Note that $gH$ sahres an element shares an element (namely, $g$) with $Hg$.
+	Since $gH$ is a left coset, then  $gH = Hb$ for some $b$.
+
+	Since $g \in gH = Hb$, then $Hb$ intersects with $Hg$, then $Hb = Hg$ (because, if two left cosets share an element, then they are equal).
+\end{dem}
+
+\begin{dem}[$ii \implies i$]
+	$gHg^{-1} = \phi_g(H) = H$, then $\phi_g \subset H$, which implies $H \vartriangleleft G$.
+\end{dem}
+
+Recall from Linear Algebra:
+
+\begin{thm}
+	Let $T: V \to W$ a linear map, then
+	\[\mathrm{dim}\ V = \mathrm{dim}\ \mathrm{ker}\ T + \mathrm{dim}\ \mathrm{Im}\ T.\]
+
+	If $T$ is onto, then	
+	\[\mathrm{dim}\ V = \mathrm{dim}\ \mathrm{ker}\ T + \mathrm{dim}\ W.\]
+\end{thm}
+
+The goal is to reproduce this idea with groups and homomorphisms, i.e., given $G, G'$ groups, and an onto homomorphism  $\phi: G \to G'$, then understand $G$ as being a "stacking" of cosets of $\mathrm{ker}(\phi)$ and when we collapse each coset to a point, we get $G'$.
+
+Our goal will be realted to the following theorem:
+
+\begin{thm}
+	Given $G$ and a subgroup $H$, then $H \vartriangleleft G$ if, and only if, there is a group $G'$ and a homomorphism  $\phi: G \to G'$ such that  $\mathrm{ker}\ \phi = H$. 
+\end{thm}
+
+\begin{defn}[Notation]
+	Let $G/H$ (``$G$ mod  $H$") be the set of all right cosets of $H$ sitting inside $G$.
+\end{defn}
+
+\begin{thm}
+	When $H \vartriangleleft G$, there exists a binary operation on $G/H$ and an homomorphism $\phi: G \to G/H$ such that $\mathrm{ker}\ \phi = H$.
+\end{thm}
+
+\begin{dem}
+	Let's define, for $A, B \in G/H$ $A*B = AB = \{g \in G : \exists\ a_1 \in A, b_1 \in B, g = a_1b_1\}$.
+	
+	We shall prove that it, in fact, a binary operation.
+\end{dem}

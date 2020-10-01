@@ -1,0 +1,63 @@
+\lecture{8}{September 25, 2020}{Coset Properties}
+
+\begin{defn}[Equivalence Relation]
+	An \emph{equivalence relation} is a relation on a set $S$, i.e., a way to say that certain pairs of elements can be in relationship to one another; so long as the pair satisfies whatever rules we choose for that relationship, AND our rules need to satisfy these properties.
+	\begin{enumerate}
+		\item $x \sim x$;
+		\item if $x \sim y$, then $y \sim x$;
+		\item if $x \sim y$ and $y \sim z$, then $x \sim z$.
+	\end{enumerate}
+	\rem{If a pair $(x, y)$ satisfy our rules, we write $x \sim y$, ``$x$ is equivalent to $y$''.}
+\end{defn}
+
+\begin{defn}[Equivalence Class]
+	Given a set $S$, $s \in S$, and an equivalence relation $\sim$, the \emph{equivalence class of $x$}, denoted $[x]$, is  $[x] = \{y \in S : x \sim y\}$.
+\end{defn}
+
+\begin{exmp}
+	Let $S = \ZZ \times (\ZZ - \{ 0 \})$, and we will say that $(a, b) \sim (c, d) \iff ad = bc$. Let us check if the three properties are ensured:
+	\begin{enumerate}
+		\item $(a, b) \sim (a, b)$, because $ab = ba$;
+		\item $(a, b) \sim (c, d) \iff ad = bc \iff cb = da \iff (c, d) \sim (a, b)$;
+		\item If $(a, b) \sim (c, d)$ and $(c, d) \sim (r, s)$.
+			Then, $ad = bc$ and  $cs = dr$. Therefore,  $adcs = bcdr$, which means that $as = br$ (since $c \neq 0 \neq d$). In other words, $(a, b) \sim (r, r)$.
+	\end{enumerate}
+
+	In this case, $[(a, b)] = \{(c, d) \in S : ad = bc\}$.
+\end{exmp}
+
+\begin{thm}
+	If $S$ is a set, with an equivalence relation  $\sim$, then the equivalence classes of  $\sim$ \emph{disjointly partition} $S$, i.e., every element of  $S$ is contained in \textbf{exactly} one equivalence class.
+\end{thm}
+
+Given $S$, equipped with an equivalence class $\sim$ on  $S$, we define $\bar{S} = \{[x] : x \in S\}$, i.e., the set of equivalence classes.
+
+In this situation, there exists a map  $\pi: S \to \bar S$, defined by $x \mapsto [x]$.
+ 
+\begin{exmp}
+	Let $S = \ZZ$, and $a \sim b$ $\iff$ $a - b$ is a multiple of  $5$. (You should verify that this is an equivalence relation.)
+
+	Then $\bar S = \{[0], [1], [2], [3], [4]\}$. E.g., $\pi(7)  = [2]$.
+\end{exmp}
+
+\begin{defn}
+	Let $H \le G$ be groups, and $a \in G$. Then, \emph{the right coset of $H$ with respect to $a$ is} 
+	\[Ha = \{ g \in G : \exists h \in H \text{ such that } ha = g\} = \{ha : h \in H\}.\]
+\end{defn}
+
+\begin{lem}
+	\[Ha = Hb \iff ab^{-1} \in H\]
+\end{lem}
+
+\begin{lem}
+	Given $H \le G$ groups, the relation defined by $a \sim b \iff ab^{-1} \in H$ is an equivalence relation.
+\end{lem}
+
+\textsl{So, what are the equivalence classes of this equivalence relation?} They are exactly the right cossets of $H$, i.e, $[a] = Ha$. 
+
+Therefore, right cosets, if distinct, share no elements in common.
+
+On Monday, we'll prove the following theorem. 
+\begin{thm}[Lagrange's Theorem]
+	If $G$ is a finite group and  $H$ is a subgroup of $G$, then $|H|$ divides $|G|$.
+\end{thm}

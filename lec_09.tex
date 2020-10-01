@@ -1,0 +1,60 @@
+\lecture{9}{September 28, 2020}{Normal Subgroups}
+
+\begin{lem}
+	Given $H \leq G$, if $|G| < \infty$, then given $a, b \in G$, it holds $\#(Ha) = \#(Hb)$.
+\end{lem}
+
+\begin{dem}
+	Note that $H$ is a right coset ($H = He$). So, suffices to show that for all $a \in G$, $\#(Ha) = |H|$.
+	Define a function $\varphi : H \to Ha$, defined by $h \mapsto ha$. We shall prove that $\varphi$ is a bijection.
+
+	Let's show that $\varphi$ is onto. Given $g \in Ha$, then $g = ha$ for some $h \in H$. But $\phi(h) = ha = g$, which means that $g \in \mathrm{Im}(\varphi)$. 
+
+	Let's show that $\varphi$ is one-to-one. If $\varphi(h_1) = \varphi(h_2) \implies h_1a = h_2a = \implies h_1aa^{-1} = h_2aa^{-1} \implies a = $
+
+	Therefore $\varphi$ is a bijection, which implies that $\#(Ha) = |H|$, and we're done!
+\end{dem}
+
+\begin{thm}[Lagrange's Theorem]
+	If $H \le G$ are finite groups, then $|H|$ divides $|G|$.
+\end{thm}
+
+\begin{dem}
+	The right cosets of $H$ partitionate $G$, i.e., they are disjoint and their union is $G$; and they all have the same number of elements. Let $[G:H]$ denote the number of right cosets of $H$ sitting inside $G$, which is called index of $H$ in $G$.
+	Therefore, \[G = [G:H] \cdot |H|.\]
+\end{dem}
+
+\begin{cor}
+	Given a group $G$ and $a \in G$, if $|G| < \infty$, then $\mathrm{order}(a)$ divides $|G|$.
+\end{cor}
+
+\begin{dem}
+	Consider $\langle a \rangle \leq G$, then, by Lagrange's Theorem, $|\langle a \rangle| = \mathrm{order}(a)$ divides $|G|$
+\end{dem}
+
+\begin{defn}
+	A subgroup $H$ of $G$ is called \emph{normal}, denoted by $H \vartriangleleft G$ if, for all $g \in G$, the image of $H$ under the  $g$-conjugation isomorphism (the $g$-conjugation isomorphism is the map $\phi_g : G \to G$ defined by $a \mapsto g a g^{-1}$) is cointained in $H$, i.e, $\phi_g(H) \subset H$, for all $g \in G$.
+\end{defn}
+
+\begin{lem} \label{l9:l1}
+	If $G$ and $G'$ are subgroups, $\phi: G \to G'$ a homomorphism, then $\mathrm{Ker}\phi \triangleleft G$.
+\end{lem}
+
+\begin{exmp}
+	$SL_n(\RR) \vartriangleleft GL_n(\RR)$.
+
+	Use \cref{l9:l1} with $\mathrm{det}: GL_n(\RR) \to \RR^\times$.
+\end{exmp}
+
+\begin{exmp}
+	$ \langle (1\ 2) \rangle \ntriangleleft G$, because $\phi_{(2\ 3)}(\langle (1\ 2) \rangle) = \{e, (1\ 3)\} \not \subset H$
+\end{exmp}
+
+\begin{thm} The following are equivalent:
+	\begin{enumerate}
+		\item $H \vartriangleleft G$;
+		\item $gHg^{-1} = H$, for any $g \in G$;
+		\item $gH = Hg$, for any  $g \in G$;
+		\item Every left coset of $H$ is a right coset of $H$.
+	\end{enumerate}
+\end{thm}

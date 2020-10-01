@@ -276,7 +276,5 @@ TSWLatexianTemp*
 *.lpz
 
 # My personal folders
-./hw/*
-./hw/
-./books/*
-./books/
+hw
+books

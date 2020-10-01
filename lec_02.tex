@@ -1,0 +1,80 @@
+\lecture{2}{September 11, 2020}{Groups}
+
+In the last class, we focused on binary (associative) operations.
+
+\subsection{Defining Groups}
+
+\begin{defn}[Notation]
+	If $a, b \in S$, then $ab$ or $a \cdot b$ will commonly be used to denote $f(a,b)$. We will also commonly call this operation a \emph{product}.
+\end{defn}
+
+Associativity allows us to be less careful when writing down long products.
+
+\begin{exmp}
+	In general, $a_1a_2a_3a_4a_5a_6a_7$ has no meaning. However, if the binary opperation is associative, no matter in which order we do the product, there will be no ambiguity about what value the expression have.
+\end{exmp}
+
+\begin{defn}
+	A binary operation on $S$ is called \emph{commutative} if for all $a, b \in S$, $ab = ba$ holds.
+\end{defn}
+
+\begin{exmp}~
+	\begin{enumerate}
+		\item $(\RR, +)$,  $(\CC, \cdot)$ have commutative binary operations.
+		\item $(\mathcal{M}_n(\RR), \text{ matrix multiplication})$ has a non-commutative operation.
+		\item $(\RR, \text{ distance})$, i.e, $f(a, b) = |a-b|$, has a commuative, but non-associative operation.
+	\end{enumerate}
+\end{exmp}
+
+\begin{defn}
+	Given $S$ equipped with a binary opperation, we say $(S, \cdot)$, has an identity element if there exists  $e \in S$ such that, for all $a \in S$, $a \cdot e = e \cdot a = a$ holds.
+\end{defn}
+
+\begin{exmp}~
+	\begin{enumerate}
+		\item $(\RR, +)$ has  $0$ as an identity.
+		\item $(\RR, \cdot)$ has  $1$ as an identity.
+		\item $(\mathcal{M}_n(\RR),\ \text{matrix multiplication})$ has $I_n$ as an identity.
+	\end{enumerate}
+\end{exmp}
+
+\begin{defn}
+	An element $a$ of  $(S, \cdot)$, that has an identity element (which we are going to call $e$), is called invertible if there exists $b \in S$ so that $ab = ba = e$.
+\end{defn}
+
+\begin{exmp}~
+	\begin{enumerate}
+		\item Every element of $(\RR, +)$ is invertible.
+		\item Every element, except $0$, of $(\RR, \cdot)$ is invertible. 
+		\item Some elements, but not all, of $\mathcal{M}_n(\RR)$, equipped with matrix multiplication, are invertible.
+	\end{enumerate}
+\end{exmp}
+
+\begin{defn}
+	A \emph{group} is a set $(G, \cdot)$ with a binary opperation so that:
+	\begin{enumerate}
+		\item The binary opperation is associative.
+		\item There exists an identity element in $G$.
+		\item Every element in $G$ is invertible.
+	\end{enumerate}
+
+	If $\cdot$ is commutative, $G$ is called an \emph{abelian group}.
+\end{defn}
+
+\begin{exmp}~
+	\begin{enumerate}
+		\item $(\RR, +)$ is a group.
+		\item $(\CC, +)$ is a group.
+		\item $(\ZZ, +)$ is a group.
+		\item $(\RR\backslash\{0\}, \cdot)$ is a group.
+		\item $(\CC\backslash\{0\}, \cdot)$ is a group.
+		\item $(\ZZ\backslash\{0\}, \cdot)$ is not a group, because $2$ does not have an inverse element.
+		\item[--] However, $(\QQ\backslash\{0\}, \cdot)$ is a group.
+		\item $\mathcal{M}_n(\RR)$, equipped with matrix multiplication is not a group, because the zero matrix does not have an inverse element.
+		\item[--] However, if we define $GL_n(\RR) = \{A \in \mathcal{M}_n(\RR)\ :\ \text{$A$ is invertible}\}$, then $GL_n(\RR)$, equipped with matrix multiplication is a group.\footnote{It is important to prove that matrix multiplication is closed under $GL_n(\RR)$. Alas, this is the first example of a non-abelian group.}
+		
+		\item Define $D_8 = \{\text{affine bijections}\ T:\RR^2 \to \RR^2\ \text{such that}\ T(\mathcal{S}) = \mathcal{S}\}$, where $\mathcal{S} = \{(0,0), (0,1), (1, 0), (1, 1)\}$, also known as the standard unit square.
+			
+	\end{enumerate}
+\end{exmp}
+

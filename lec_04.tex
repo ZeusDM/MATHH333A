@@ -1,0 +1,73 @@
+\lecture{4}{September 16, 2020}{Integers}
+
+\begin{prop}
+	$S_n$ us a finite group, and $|S_n| = n! = n \cdot (n-1) \cdot \dots \cdot 2 \cdot 1$.
+\end{prop}
+
+\begin{dem}
+	An arbitrary element $\tau \in S_n$ is described by determining $\tau(1), \tau(2), \dots, \tau(n)$. We have $n$ choices for $\tau(1)$; after that, we have $n-1$ choices for $\tau(2)$; $\dots$; after that, we have $1$ choice for $\tau(n)$. 
+\end{dem}
+
+\begin{exmp}
+	Suppose $q, p \in S_5$, $q = (1 4 3 2 5)$ and $p = (15)(34)$. Determine $qp$ in cycle notation.
+\end{exmp}
+
+\begin{ans}[Cheat] $qp = (14325) (15) (34).$
+\end{ans}
+
+\begin{ans}[More useful] $qp = (425).$
+\end{ans}
+
+\begin{defn}
+	Given $\tau \in S_n$, define $M_\tau$ as a $n \times n$ matrix obtained by permuting the rows of $I_n$ in accordance with $\tau$.
+\end{defn}
+
+\begin{exmp}
+	If $\tau \in S_4$,  $\tau = (134)$, then
+	\[M_\tau = 
+	\begin{pmatrix}
+		0 & 0 & 0 & 1\\
+		0 & 1 & 0 & 0\\
+		1 & 0 & 0 & 0\\
+		0 & 0 & 1 & 0
+	\end{pmatrix}.\]	
+	
+	Given $\vec{x} = \begin{pmatrix} x_1\\ x_2\\ x_3\\ x_4 \end{pmatrix}$, we have $M_\tau \vec{v} = \begin{pmatrix} x_4\\ x_2\\ x_1\\ x_3\end{pmatrix}.$
+\end{exmp}
+
+\begin{thm}
+	Given $\tau \in S_n, \vec{x} = \begin{pmatrix} x_1\\ x_2\\ \vdots\\ x_n \end{pmatrix}$, then $M_\tau \vec{x} = \begin{pmatrix} x_{\tau^{-1}(1)}\\ x_{\tau^{-1}(2)}\\ \vdots\\ x_{\tau^{-1}(n)} \end{pmatrix}$.
+\end{thm}
+
+\begin{thm} $\det(M_\tau) = \pm 1$.
+\end{thm}
+
+\begin{thm}
+	Given $p, q \in S_n$, then  $M_{pq} = M_p M_q$.
+\end{thm}
+
+\begin{defn}
+	The \emph{sign of} $\tau \in S_n$ is either $\pm 1$, and it is just $\det(M_\tau)$.
+\end{defn}
+
+\begin{prob} \label{l4:multiple}
+	If $G = (\ZZ, +)$, what are all subgroups of $G$?
+\end{prob}
+
+\begin{sol}
+	Let $H$ be a subgroup of $G$. $0 \in H$, because $0$ is the identity element.
+
+	If $H = \{0\}$, we have a group -- note that $H = 0\ZZ$. Otherwise, $H$ has an element distinct from $0$. Since $a \in H \iff -a \in H$, then there is a positive integer in $H$.
+	
+	Let $h$ be the smallest positive integer in $H$. Since addition is a binary opperation in $H$, we have $h\ZZ \subset H$.
+
+	Supposse $H \neq h\ZZ$. Therefore, there is an element $x \in H$, such that $x \not \in h\ZZ$. Therefore, by Euclid's Algorithm, there is an integer $q$ such that $nh < x < (n+1)h$; namely, $q$ the quotient of $x$ when evenly divided by $h$. Therefore, $0 < x - qh < h$. 
+
+	However, $qh, x \in S$ implies that $x - qh \in H$. This is a contradition, because we have found a positive ineger smaller than $h$ (the smallest positive element of $H$), which is also an element of $H$.
+
+	Therefore, $H = h\ZZ$, with $H \in \ZZ_{\ge 0}$, are all the subgroups of $G$.
+\end{sol}
+
+Let us see some applications of \cref{l4:multiple}.
+
+Given $a, b \in \ZZ$, consider $S = a\ZZ + b\ZZ = \{ n \in \ZZ : n = ra+sb, r, s \in \ZZ\}.$ Verify that $S$ is a subgroup of $\ZZ$. Using \cref{l4:multiple}, we have that $S = d\ZZ$, for some integer $d$.
