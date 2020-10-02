@@ -1,0 +1,44 @@
+\lecture{11}{October 02, 2020}{Quotient Groups}
+
+Here's a rephrasing of our motivation from Linear Alegbra:
+
+Suppose $V$ is a vector space, and $S \subset V$ a subspace. Let $\vec{x} \in V$. In Linear Algebra, we learned we write $\vec{x}$ as a sum of a vector in $S$ with an vector $\vec{z}$ ortogonal to $S$, a.k.a., $\vec{z} \in S^\perp$. 
+
+$V$ can be decomposed into parallel copies of $S$, and there exists a vector space $W$ and a linear map $T: V \to W$ so that  $T$ has the effect of collapsing each parallel copy of $S$ to a point. And, $\mathrm{ker}\ T = S$.
+
+To summarize: Given $S$ a subspace of $V$, there exists a decomposition of  $V$ into parallel copies of $S$ and there exists a vector space $W$ and a linear map $T : V \to W$ so that  $T$ collapses the parallel copies to points and $\mathrm{ker}\ T = S$.
+
+Our goal in the Group Theory setting: Given  $H \vartriangleleft G$, there exists a decomposition of  $G$ into right cosets of $H$ in $G$ and there exists a group $G'$ and a homomorphism $\phi: G \to G'$ so that $\phi$ collapses a right cosets of $H$ to a point and  $\mathrm{ker} \phi = H$.
+
+On Wednesday, we defined $G/H = \{\text{right cosets of $H$ in $G$}\}$ as our candidate for $G'$.
+
+Given  $Ha, Hb \in G/H$, we defined  $Ha * Hb = (Ha)(Hb) = \{h_1ah_2b : h_1, h_2 \in H\}$.
+
+We know that $aH = Ha$, then $HaHb = HHab$. Since $H$ is closed under operation and $He = H$, we have that $HH = H$. Thus, \[Ha * Hb = (Ha)(Hb) = H(ab),\]
+which means that $*$ is a binary operation. 
+
+So far, we have that $G/H$ has a binary operation. We also have a candidate for  $\phi$! Define $\phi: G \to G/H$, with  $g \to Hg$. Given,  $a, b \in G$, \[\phi(ab) = H(ab) = (Ha)(Hb) = \phi(a)\phi(b), \] thus $\phi$ has the homomorphism property. Note also that $\phi$ is onto.
+
+\begin{lem}
+	If $G$ is a group, $Y$ is a set with a binary operation, $\phi : G \to Y$ such that $\phi$ has the homomorphism property, and $\phi$ is onto. Then $Y$ is a group and $\phi$ is a homomorphism.
+\end{lem}
+
+\begin{dem}
+	We need to show the following items:
+	\begin{enumerate}
+		\item Assoiativity. Given $a, b, c \in Y$, since $\phi$ is onto, we have $a = \phi(a'), b = \phi(b'), c = \phi(c')$, for some  $a', b', c' \in G$. So
+			 \begin{align*}
+				 (ab)c &= (\phi(a')\phi(b'))\phi(c')\\
+					   &= \phi(a'b')\phi(c')\\
+					   &= \phi((a'b')c')\\
+					   &= \phi(a'(b'c'))\\
+					   &= \phi(a')\phi(b'c')\\
+					   &= \phi(a')(\phi(b')\phi(c'))\\
+					   &= a(bc).
+			 \end{align*}
+		\item Identity. The same strategy as above.
+		\item Inverses. The same strategy as above.
+	\end{enumerate}
+
+	Thus, $Y$ is a group.
+\end{dem}
