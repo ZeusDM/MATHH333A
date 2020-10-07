@@ -1,3 +1,49 @@
 \lecture{12}{October 05, 2020}{First Isomorphism Theorem}
 
-I could not attend this class. Lecture notes are to do.
+Summary of our work from last week:
+
+Start with a group $G$ and a normal subgroup $H$ in $G$. Then, we showed that there exists a way to turn $G/H$ into a group, and, the ``natural'' map $\phi: G \to G/H$, defined by $g \to Hg$ is an onto homomorphism. The identity of  $G/H$ is $H$. Also,  $\ker(\phi) = H$. AND, $\phi$ has the effect of collapsing each coset of  $H$ to a single element.
+
+So, starting with $H \vartriangleleft G$, we constructed an onto homomorphism $\phi: G \to G/H$.
+
+\noindent \textbf{Question.} If we start with and onto homomorphism  $\phi: G \to G'$, when is it the case that $\phi$ arose via what we did last week?
+
+\begin{thm}[1\textsuperscript{st} Isomorphism Theorem]
+	If $\phi: G \to G'$ is an onto homomorphism, and $N$ denotes $\ker(\phi)$, then  $G'$ is isomorphic to $G/N$.
+
+And, there exists an unique isomorphism $\bar\phi: G/n \to G'$ so that  $\bar\phi$ \emph{commutes} with the natural map  $\pi: G \to G/N$, defined by $g \mapsto G/N$, i.e.,  \[\bar\phi \circ \pi = \phi.\]
+\end{thm}
+
+\begin{dem}
+	We want to find a map $\bar\phi: G/N \to G$. Let's define \[\phi\bar(Ng) = \phi(g).\]
+
+	There is a subtle problem: what if $Ng = Nh$? As we defined $\bar\phi$, it sends $Ng$ to $\phi(g)$, and $Na$ to $\phi(a)$. This is a problem unless  $\phi(g) = \phi(h)$.
+
+	This definition is coherent, because \begin{align*}
+		Ng = Nh &\implies gh^{-1} \in N = \ker\phi\\
+				&\implies \phi(gh^{-1}) = e' & \text{($e'$ is the identity element of $G'$)}\\
+				&\implies \phi(g)\phi(h)^{-1} = e'\\
+				&\implies \phi(g) = \phi(h).
+	\end{align*}
+
+	Let's show that $\bar\phi$ is a homomorphism:
+	\begin{align*}
+		\bar\phi(NaNb) &= \bar\phi(Nab) & \text{($N$ is normal)}\\
+					   &= \phi(ab)\\
+					   &= \phi(a)\phi(b) & \text{($\phi$ is a homomorphism)}\\
+					   &= \bar\phi(Na)\bar\phi(Nb).
+	\end{align*}
+
+	Let's show that $\bar\phi$ is onto: Given  $g' \in G'$, there exists $y \in G$ such that $\phi(y) = g'$, since $\phi$ is onto. So, consider $\pi(y) = Ny \in G/H$. Then,  $\bar\phi(Ny) = \phi(y) = g'$.
+
+	Let's show that $\bar\phi$ is one-to-one:
+	\begin{align*}
+		\bar\phi(Na) = \bar\phi(Nb) & \implies \phi(a) = \phi(b)\\
+									& \implies \phi(a)\phi(b)^{-1} = e'\\
+									& \implies \phi(ab^{-1}) = e'\\
+									& ab^{-1} \in N\\
+									& Na = Nb.
+	\end{align*}
+
+	Thus, $\bar\phi$ satisfies the commuting property!
+\end{dem}
