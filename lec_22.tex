@@ -1,0 +1,97 @@
+\lecture{22}{October 28, 2020}{Creating fields from rings}
+
+Given a ring $R$, how can we use it to create a fielf $F$?
+
+Philosophically, there are two ways to do this:
+\begin{enumerate}
+	\item add elements to $R$ to create some field $F$ in which $R$ is a subring.
+	\item kill elements of $R$, e.g., create $R/I$.
+\end{enumerate}
+
+\vspace{1em}
+
+For ($i$), we can only do that if $R$ does not contain zero-divisors, i.e., if $R$ is an integral domain.
+
+\begin{defn}[Field of Fractions]
+	Let $R$ be an integral domain (a ring with no zero-divisors, i.e., $xy = 0$ implies $x = 0$ or $y = 0$).
+	Given $R \times (R - \{0_R\})$, let $\sim$ be an equivalence relation defined by $(a, b) ~ (c, d) \iff ad = bc$.
+
+	Then the field of fractions of $R$ is the set of equivalence classes of this relation. It has the following notions of addition and multiplication:
+	\begin{enumerate}
+		\item $(a, b) + (c, d) = (ad + bc, bd)$;
+		\item $(a, b) (c, d) = (ac, bd)$.
+	\end{enumerate}
+
+	As always, whenever an object has different representations, it is important to show that the operations are consistent (if I change $(a, b)$ to an equivalent $(a', b')$, then the result is the same).
+\end{defn}
+
+\begin{prob}
+	Prove that the set $R \times (R - \{0\})$, equipped with the operations defined above, is a ring.
+\end{prob}
+
+\begin{exmp}
+	For $(\ZZ, +, \cdot)$,  $F(\ZZ) = \{[(a, b)] : a, b \in \ZZ\}$. In this case, we have $F(\ZZ) \approx \QQ$.
+\end{exmp}
+
+Note also that in $F(R)$, the additive identity is $[(0, 1)]$, and  $(0, 1) \sim (0, a)$ for $a \in R - \{0\}$; and the multiplicative identity is $[(1, 1)]$.
+
+So, to show that  $F(R)$ is a field, it suffices to show that  $[(a, b)]$, where $a \neq 0$, has a multiplicative inverse. If $a \neq 0$, then $[(b, a)] \in F(R)$ and $[(a, b)] \times [(b, a)] = [(ab, ba)] = [(1, 1)]$.
+
+Notationally, we will often denote $[(a, b)]$ as $\frac{a}{b}$.
+
+ \begin{prop}
+	 $F(R)$ is the ``smallest'' field containing $R$.
+\end{prop}
+
+\begin{thm}[Mapping principle]
+	If $F_1$ is a field, $R$ is an integral domain and $R \subset F_1$, then there is a ring homomorphism $\phi: F(R) \to F_1$. Namely, $\phi$ maps $\frac{a}{b}$ to $ab^{-1}$.
+\end{thm}
+
+\begin{prop}
+	The map $\psi: R \to F(R)$, defined by $r \mapsto [(r, 1)]$ is one-to-one.
+\end{prop}
+
+Before moving to ($ii$), let's introduce some terminology.
+\begin{enumerate}[label = \textbullet]
+	\item $R$ is a ring (not necessarily an integral domain).
+	\item $u \in R$ is a \emph{unit} if it has a multiplicative inverse.
+	\item $a$ \emph{divides} $b$, written as $a \mid b$, if there is $q \in R$ such that $b = aq$. 
+	\item $a$ is a \emph{proper divisor} of  $b$ if $a$ is not a unit and there is $q \in R$, $q$ is not a unit and $b = aq$.
+	\item  $a$ and $b$ are \emph{associates} if each divides each other.
+	\item $a$ is \emph{irreductible} if $a$ does not have proper divisors.
+	\item $a$ is \emph{prime} if it holds that $a \mid bc \implies a \mid b$ or  $a \mid c$.
+\end{enumerate}
+
+\begin{lem}~
+	\begin{enumerate}[label = \textbullet]
+		\item $u$ is a unit if, and only if, $(u) = R$.
+		\item $a \mid b \iff (b) \subset (a)$.
+		\item $a$ is a proper divisor of $b$ if, and only if, $(b) \subsetneq (a) \subsetneq R$.
+		\item $a$ and $b$ are associates if, and only if, $(a) = (b)$.
+		\item $a$ is irreducible if, and only if, $(a) \subsetneq R$ and there is no $c \in R$ such that $(a) \subsetneq (c) \subsetneq R$.
+		\item $a$ is prime if, and only if, $bc \in (a) \implies b \in (a)$ or $c \in (a)$.
+	\end{enumerate}
+\end
+{lem}
+
+\begin{defn}[Prime ideal]
+	A prime ideal $I$ is an ideal such that, if $bc \in I$, then $b \in I$ or $c \in I$.
+\end{defn}
+
+\begin{defn}
+	An ideal $I \neq R$ of a ring $R$ is called \emph{maximal} if, whenever $J$ is an ideal and $J \supset I$, then $J = I$ or $J = R$.
+\end{defn}
+
+In the next class, we will discuss the following theorem:
+\begin{thm}
+	$R / I$ is a field if, and only if,  $I$ is maximal.
+\end{thm}
+
+\begin{lem}
+	A ring $R$ is a field if, and only if, $R$ contains exactly two ideals, namely $\{0\}$ and $R$.
+\end{lem}
+\begin{dem}
+	If $R$ is a field, then if $J$ is an ideal, suppose $J \neq \{0_R\}$. Then there is some $a \in J$. However, since $R$ is a field, $a$ is a unit. Therefore, $(a) = R$, which implies that $J = R$.
+
+	Conversely, for all $a \neq 0$, $(a)$ must be $R$, thus $a$ is a unit.
+\end{dem}

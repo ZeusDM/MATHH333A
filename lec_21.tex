@@ -1,0 +1,41 @@
+\lecture{21}{October 26, 2020}{Making rings bigger}
+
+\begin{exmp}
+	Let $R = (\RR, +, \cdot)$. We can define a new symbol, $i$, defined by the equation $i^2 = -1$. Then we get a new ring \[\RR[i] = \{r_0 + r_1 i + r_2 i^2 + \cdots + r_ni^n \mid r_i \in \RR\}.\]
+
+	But  $i^2 = -1$, thus, \[\RR[i] = \{a + bi \mid a, b \in \RR\}.\]
+
+	Two observations are:
+	\begin{enumerate}[label = \textbullet]
+		\item $\RR[i]$ is ``a lot smaller'' than expected.
+		\item $\RR[i] \approx \RR[x] \big/ \langle x^2 + 1 \rangle$.
+	\end{enumerate}
+\end{exmp}
+
+\begin{prop}
+	Let $R$ be a ring, let $f \in R[x]$ be a monic polynomial, and let $n$ be $\deg f$. Then the quotient ring  $R[x] / \langle f \rangle$ satisfies:
+	\begin{enumerate}
+		\item If we define $\alpha$, a new element, so that $f(\alpha) = 0$, then $R[x] / \langle f \rangle$ can be identified with $R[\alpha]$, and, any element $\lambda \in R[\alpha]$ can be uniquely expressed as $\lambda = r_0 + r_1\alpha + \cdots + r_{n-1}\alpha^{n-1}$ for some $(r_0, \dots, r_{n-1})$, i.e., $(1_R, \alpha, \alpha^2, \dots, \alpha^{n-1})$ acts like a basis for $R[\alpha]$.
+		\item elements in  $R[\alpha]$ are added just like vector addition.
+		\item If $\beta_1, \beta_2 \in R[\alpha]$, let $g_1, g_2 \in R[x]$ such that  $g_1(\alpha) = \beta_1$ and $g_2(\alpha) = \beta_2$. Then polynomial division implies that there are polynomials $q(x), r(x)$, with $\deg(r) < n$, such that $g_1g_2(x) = f(x)q(x) + r(x)$. Then $\beta_1\beta_2 = r(\alpha)$.
+	\end{enumerate}
+\end{prop}
+
+How else can we make a ring bigger?
+
+\begin{exmp}
+	Let $R = (\ZZ, +, \cdot)$. Then $\QQ$ is called the ``field of fractions of $\ZZ$'', which is a field you get by starting with $\ZZ$ and adding in the multiplicative inverses of everything except $0$.
+\end{exmp}
+
+\begin{defn}[Field of Fractions]
+	Let $R$ be an integral domain (a ring with no zero-divisors, i.e., $xy = 0$ implies $x = 0$ or $y = 0$).
+	Given $R \times (R - \{0_R\})$, let $\sim$ be an equivalence relation defined by $(a, b) ~ (c, d) \iff ad = bc$.
+
+	Then the field of fractions of $R$ is the set of equivalence classes of this relation. It has the following notions of addition and multiplication:
+	\begin{enumerate}
+		\item $(a, b) + (c, d) = (ad + bc, bd)$;
+		\item $(a, b) (c, d) = (ac, bd)$.
+	\end{enumerate}
+
+	As always, whenever an object has different representations, it is important to show that the operations are consistent (if I change $(a, b)$ to an equivalent $(a', b')$, then the result is the same).
+\end{defn}

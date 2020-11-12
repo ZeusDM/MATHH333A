@@ -1,0 +1,75 @@
+\lecture{17}{October 16, 2020}{---}
+
+In last class, we learned about the substituion principle. If $\phi : R \to R'$ is a ring homomorphism, and $a \in R'$, then there exists a unique ring homomorphism  $\Phi : R[x] \to R'$ satisfying
+\begin{enumerate}
+	\item $\Phi|_R = \phi$. (In general, if $f : X \to Y$ and $A \subset X$, we can consider $f|_A : A \to Y$ given by restricting the domain of $f$ to $A$) 
+	\item $\Phi(x) = a$.
+\end{enumerate}
+
+On Wednesday, we said that ``in spirit'', this is saying that any ring homomorphism ``looks like'' a restriction of an evaluation map.
+
+\begin{exmp}[Example of Evaluation Map]
+	Given $R$ a ring and $a \in R,$ let  $\phi_a: R[x] \to R$ be defined by $p(x) = a_nx^n + \cdots + a_1x + a_0 \mapsto a_na^n + \cdots + a_1 a + a_0$. This is an evaluation map, and it is a ring homomorphism
+\end{exmp}
+
+\begin{defn}[Generalized Evaluation Map]	
+	Assume $\phi: R \to R'$ is a ring homomorphism and fix $a \in R'$. Let $\phi_a: R[x] \to R'$ be defined by
+	\[p(x) = a_n x^n + \cdots + a_1x + a_0 \mapsto \phi(a_n)a^n + \cdots + \phi(a_1)a + \phi(a_0).\]
+\end{defn}
+
+	Every ring homomorphism $\phi: R \to R'$ is the restriction of a generalized evaluation map from $R[X]$ to $R'$. And, if we specify  $a \in R'$, there is a unique generalized evaluation $\phi_a : R[x] \to R'$ such that $\phi$ is a restriction of $\phi_a$.
+
+Therefore, we can interpret the substitution principle as follows:
+
+\begin{thm}
+Given $\phi : R \to R'$, and  $a \in R'$, the generalized evaluation map $\phi_a$ is a ring homomorphism and it is the only ring homomorphism from  $R[x]$ to  $R'$ agreeing with  $\phi $ on $R$ and sending $x$ to $a$.
+\end{thm}
+
+Let's prove the theorem above (and, consequently, prove the substitution principle).
+
+\begin{dem}
+	We are given $\phi: R \to R'$ and $a \in R'$. We want to show that:
+	\begin{enumerate}
+		\item The map $\Phi : R[x] \to R'$ defined by $p(x) = a_nx^n + \cdots + a_1x + a_0 \mapsto \phi(a_n)a^n + \cdots + \phi(a_1)x + \phi(a_0)$ is a ring homomorphism.
+		\item It holds that $\Phi|_R = \phi$, and  $\Phi(x) = a$.
+		\item The map $\Phi$ the only ring homomorphism with these properties.
+	\end{enumerate}
+
+	Let's prove each item:
+	\begin{enumerate}
+		\item We need to show the following items
+			\begin{enumerate}[label = (\alph*)]
+				\item $\Phi(1_R) = 1_{R'}$, because $\Phi(1_R) = \phi(1_R) = 1_{R'}$.
+				\item $\Phi(f + g) = \Phi(f) + \Phi(g)$. This item is left to the reader.\footnote{Use the definition of $\Phi$ and use that $\phi$ is a ring homomorphism.}
+				\item $\Phi(fg) = \Phi(f)\Phi(g)$. Let $f = \sum_i a_ix^i$ and $g = \sum_j b_jx^j$. Then,
+					\begin{align*}
+						\Phi(fg) &= \Phi\left(\sum_i \sum_j a_ib_jx^{i+j}\right)\\
+								 &= \sum_i\sum_j \phi(a_ib_j)a^{i+j} \\
+								 &= \sum_i\sum_j \phi(a_i)\phi(b_j)a^{i+j}\\
+								 &= \left(\sum_i \phi(a_i)a^i\right)\left(\sum_j\phi(b_j)a^j\right)\\
+								 &= \Phi(f) \Phi(g)
+					\end{align*}
+			\end{enumerate}
+		\item Exercise left to the reader.
+		\item Try it!
+	\end{enumerate}
+\end{dem}
+
+\begin{thm}[Slightly more general version of subprinciple]
+	If $\phi: R \to R'$ is a ring homomorphism and $\alpha_1, \alpha_2, \dots \alpha_n \in R'$, then there exists a unique ring homomorphism  $\Phi : R[x_1, x_2, \dots, x_n] \to R'$ satisfying $\Phi\mid_R = \phi$ and  $\Phi(x_i) = \alpha_i$.
+\end{thm}
+
+\begin{thm}
+	For any ring $R$, it holds that $R[x, y] \simeq (R[x])[y]$.
+\end{thm}
+
+\begin{dem}
+	$R$ is a subring of $R[x]$ and $R[x]$ is a subring of $(R[x])[y]$. Thus, $R$ is a subring of $(R[x])[y]$. Therefore, we have a natural obvious ring homomorphism  $\phi: R \to (R[x])[y]$.
+
+	The substitution principle for $n = 2$, there exists a ring homomorphism  $\Phi: R[x, y] \to (R[x])[y]$, extending  $\phi$.
+
+	$R[x]$ is also a subring of $R[x, y]$. Therefore, we have  $\gamma: R[x] \to R[x, y]$.
+	The substitution principle, there exists $\Gamma: (R[x])[y] \to R[x, y]$.
+
+	Check that $\Gamma$ is the inverse of $\Phi$.
+\end{dem}

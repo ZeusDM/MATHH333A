@@ -1,0 +1,32 @@
+\lecture{14}{October 09, 2020}{More Examples}
+
+\begin{rem}
+	This class has a lot of drawings, which are on Moodle's video of the lecture. The lecture notes for this class are not really useful without the drawings.
+\end{rem}
+
+Let's show another example of the first isomorphism theorem:
+
+In spirit, the first isomorphism theorem says that if $\phi: G \to G'$ onto, then $G$ is comprised of copies of $\ker \phi$, organized into the pattern of $G'$.
+
+\begin{exmp}
+	Let $G = (\ZZ, +)$ and $G' = \{0, 1, 2, 3, 4\}$, eqquipped with addition modulo $5$.
+	Let $\phi: \ZZ \to G'$ be the map defined by $k \mapsto k \pmod{5}$.
+
+	Then, the first isomorphism theorem implies that:
+	\begin{enumerate}
+		\item $G' \simeq \ZZ/\ker\phi$.
+		\item If $\pi: \ZZ \to \ZZ / \ker\phi$ is the natural map defined by $n \mapsto (\ker\phi)n$, then there is an isomorphism $\bar\phi: \ZZ/\ker\phi \to G'$ such that $\phi = \bar\phi \circ \pi$. 
+
+			This implies that, for any $k_1, k_2 \in \ZZ$, it holds that $\phi(k_1) = \phi(k_2) \iff \pi(k_1) = \pi(k_2)$, i.e., $(\ker\phi) + k_1 = (\ker\phi) + k_2$. (Here, we are using $+$ because that is the group operation.)
+	\end{enumerate}
+
+	SEE THE PICTURES IN THE LECTURE VIDEO.
+\end{exmp}
+
+\begin{exmp}
+	Let's apply the same reasoing for $\phi: F_2 \to \ZZ^2$, from last class.
+
+	SEE THE PICTURES IN THE LECTURE.
+\end{exmp}
+
+
