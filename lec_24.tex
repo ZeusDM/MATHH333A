@@ -1,0 +1,78 @@
+\lecture{24}{November 13, 2020}{Polynomials}
+
+Let's recall some definitions.
+
+\begin{defn}[Irreductible and Prime Elements]
+	If $R$ is a ring, a non-unit element $r \in R$ is called \emph{irreductible} if there are no $x, y \in R$, neither of which are units (i.e., neither $x$ nor $y$ have multiplicative inverses) such that $r = xy$.
+
+	Also, a non-unit element $s \in R$ is called \emph{prime} if, whenever $s \mid xy$, it holds that $s \mid x$ or $s \mid y$.
+\end{defn}
+
+\begin{prob}
+	Let $f \in \ZZ[x]$. Suppose that $f$ is reducible in $\QQ[x]$. Is $f$ reducible in $\ZZ[x]$?
+\end{prob}
+
+\begin{lem}\label{l24:lem2}
+	If $r(x) = b_1x + b_0 \in \ZZ[x]$ divides $f(x) = a_nx^n + \cdots + a_0 \in \ZZ[x]$, then $b_1 \mid a_n$ and $b_0 \mid a_0$.
+\end{lem}
+
+\begin{dem}
+	Since $r(x) \mid f(x)$, there exists $q(x) = q_mx^m + \cdots + q_0 \in \ZZ[x]$ such that \[a_nx^n + \cdots + a_0 = (b_1x + b_0)(q_mx^m + \cdots + q_0).\] 
+
+	By comparing the leading and constant coefficients, we conclude that $a_n = q_mb_1$ and $a_0 = q_0b_0$, thus $b_1 \mid a_n$ and $b_0 \mid a_0$.
+\end{dem}
+
+\begin{lem}\label{l24:lem3}
+	Assume $b_1 \neq 0$ and $\gcd(b_0, b_1) = 1$. Then $r(x) = b_1x + b_0 \in \ZZ[x]$ divides $f \in \ZZ[x]$ if, and only if, $-\frac{b_0}{b_1}$ is a root of f.
+\end{lem}
+
+\begin{lem}
+	A rational root of a monic polynomial in $\ZZ[x]$ is an integer.
+\end{lem}
+\begin{dem}
+	Suppose $\frac{p}{q}$ is a root of monic $f \in \ZZ[x]$. By \cref{l24:lem3}, $qx - p$ divides $f$. By \cref{l24:lem2}, $q$ divides $1$ (the leading coefficient of $f$). Thus, $\frac{p}{q}$ is an integer.
+\end{dem}
+
+\begin{defn}[Primitive Polynomials]
+	A polynomial $f(x) = a_nx^n + \cdots + a_0$ is \emph{primitive} if $a_n > 0$ and $\gcd(a_n, \cdots, a_0) = 1$.
+\end{defn}
+
+\begin{lem}
+	Let $f \in \ZZ[x]$,  $\deg(f) > 0$, and  $a_n > 0$. Then, the following are equivalent:
+	 \begin{enumerate}
+		\item $f$ is primitive.
+		\item For all prime numbers $p \in \ZZ$, $p$ does not divide $f$ as elements of $\ZZ[x]$. 
+		\item If $\psi_p : \ZZ[x] \to \ZZ/p\ZZ[x]$ given by $\bmod{\ p}$ on each coefficient, then $f \not\in \ker\psi_p$ for all primes $p$.
+	\end{enumerate}
+\end{lem}
+
+\begin{dem}~
+	\begin{itemize}
+		\item[$(i) \implies (ii)$:] Assume $f$ is primitive $\implies \gcd(a_n, \cdots, a_0)$.
+			
+			If a prime $p$ would divide $f$, that would mean that there was a $q(x) = q_mx^m + \cdots + q_0$ such that $f(x) = p \cdot q(x)$. Thus, \[f(x) = pq_mx^m + \cdots pq_0.\]
+			Therefore, $p$ divides each coefficients of $f$, which means $\gcd(a_n, \cdots, a_0) > 1$, a contradiction.
+
+		\item[$(ii) \implies (iii)$] Suppose $f$ is not divisible by any prime $p$. Then, for any $p$, there is at least one coefficient of $f$ that is not multiple of $p$. Therefore, $f$ cannot be mapped by $\psi_p$ to the zero polynomial in $\ZZ/p\ZZ$, i.e.,  $f \not\in \ker\psi_p$.
+
+		\item[$(iii) \implies (i)$] Left as exercise.
+	\end{itemize}
+\end{dem}
+
+\begin{prop}
+	If $f(x) \in \ZZ[x]$ is prime, then it is irreducible.
+\end{prop}
+\begin{dem}
+	Suppose that $f \in \ZZ[x]$ is prime and reducible, i.e., $f(x) = a(x)b(x)$, for some non-units $a, b \in \ZZ[x]$. 
+
+	Since $f$ is prime, $f$ divides $a(x)$ or $f(x)$ divides $b(x)$. Without loss of generality, assume that $f(x)$ divides $a(x)$. Thus, we can write $a(x) = f(x) c(x)$, for some $c\in \ZZ[x]$. Therefore, it holds that \[f(x) = f(x) c(x) b(x).\] Looking this as an equation sitting inside $\QQ[x]$, an integral domain, we can cancel $f(x)$. Thus, \[1 = c(x) b(x).\]
+	Since $1, c(x), b(x) \in \ZZ[x]$, it means that $b$ is a unit in $\ZZ[x]$, a contradiction.
+\end{dem}
+
+\begin{prop}
+	$n \in \ZZ$ is a prime as a polynomial in \ZZ[x], i.e., if $n$ is a factor of $p(x)q(x)$, then $n$ divides $p(x)$ or $n$ divides $q(x)$, if, and only if, $n$ is a prime in $\ZZ$. 
+\end{prop}
+
+\begin{prop}[Gauss' Lemma]
+	The product of primitive polynomails is primitive.
+\end{prop}
