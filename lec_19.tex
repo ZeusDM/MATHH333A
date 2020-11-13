@@ -1,1 +1,54 @@
-\lecture{19}{October 21, 2020}{---}
+\lecture{19}{October 21, 2020}{Quotient Rings}
+
+On Monday, we proved that the kernel of a ring homomorphism is an ideal. Today, we'll see that every ideal can be seen as the kernel of some ring homomorphism.
+
+\begin{thm}
+	There exists a natural way of giving $R/I = \{r + I \mid r \in R\}$ a notion of $+$ and $\cdot$ and making it a ring such that the natural map $\pi: R \to R/I$, defined by $r \mapsto r +  I$ is a ring homomorphism with $\ker\phi = I$.
+\end{thm}
+\begin{sk}
+	By the work that we've already done when studying groups, we can understand $R/I$ as an additive group. Thus, our task builds down to defining a multiplication on $R/I$.
+
+	Let's define \[(I + a)\cdot(I+b) = (I + a)(I + b) = \{a' + b' \mid a'\in I+a, b'\in I+b\}.\] 
+
+	Note that
+	\begin{align*}
+		(I + a)\cdot(I + b) &= (I + a)(I + b)\\
+							&= II + aI + bI + ab\\
+							&= I + ab.
+	\end{align*}
+
+	It is necessary (and ommited here) checking the ring properties.
+
+	The proof that $\pi$ is a ring homomorphism is also ommited. \emph{(It is similar to the group theory analog.)}
+\end{sk}
+
+\begin{rem}
+	If we prove $\pi: R \to R/I$ is a ring homomorphism, then $\ker \pi = I$ is immediate, since $\pi(i) = I$, for all $i \in I$, and $I$ is the additive identity in $R/I$.
+\end{rem}
+
+
+\begin{thm}[\emph{Forgotten} Correspondence Theorem for Groups]
+	If $G \to G'$ is an onto group homomorphism, then the map $\psi: \{\text{subgroups of $G$ containing $\ker\phi$}\} \to \{\text{subgroups of $G'$}\}$ defined by $H \mapsto \phi(H)$ and $H' \mapsfrom \phi^{-1}(H') = \{g \in G \mid \phi(g) \in H'\}$ is a bijective correspondence.
+
+		Also, if $H$ and $H'$ are partners and normal, then $G/H \approx G'/H'$.
+\end{thm}
+
+\begin{thm}[Correspondence Theorem for Rings]
+	If $R \to R'$ is an onto ring homomorphism, then the map $\psi: \{\text{ideals in $R$ containing $\ker\phi$}\} \to \{\text{ideals in $R'$}\}$ defined by $I \mapsto \phi(I)$ and $I' \mapsfrom \phi^{-1}(I') = \{r \in R \mid \phi(r) \in I'\}$ is a bijective correspondence.
+
+		Also, if $I$ and $I'$ are partners, then $R/I \approx R'/I'$.
+\end{thm}
+
+\begin{exmp}
+	Let $R = \CC[x]$ and the ideal $I = \langle x^2 - 1 \rangle$. Determine the ideals of $\CC[x]/ \langle x^2 - 1 \rangle$.
+
+	Consider the natural map $\pi: \CC[x] \mapsto \CC[x]/ \langle x^2 - 1 \rangle$. The correspondance theorem implies that the ideals of $\CC[x]/ \langle x^2 - 1 \rangle$ are in correspondance with the ideals of $\CC[x]$ containing  $\ker \pi = \langle x^2 - 1 \rangle$.
+
+	Given an ideal $I$ of $\CC[x]$, remember that $I$ is principal by \cref{prop:l18} \emph{($\CC$ is a field).}
+	
+	So, there exists a monic polynomial $f(x) \in \CC[x]$ such that $I = \langle f(x) \rangle$. If $I \supset \ker\pi = \langle x^2 - 1 \rangle$, then $f(x)$ has to be a factor of $x^2 - 1$. 
+
+	Therefore, $f(x) = 1$ or $f(x) = x^2 - 1$ or $f(x) = x + 1$ or $f(x) = x - 1$.
+
+	By the correspondance theorem, there are only $4$ ideals in $\CC[x]/ \langle x^2 - 1 \rangle$. They are $\underbrace{\pi( \langle 1 \rangle)}_{\CC[x]/ \langle x^2 - 1\rangle}$,  $\underbrace{\pi( \langle x^2 - 1 \rangle)}_{\{0_{\CC[x]/ \langle x^2 - 1 \rangle}\}}$, $\pi( \langle x + 1 \rangle)$, and $\pi( \langle x-1 \rangle)$.
+\end{exmp}
