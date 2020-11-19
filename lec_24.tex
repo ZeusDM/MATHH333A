@@ -37,7 +37,7 @@ Let's recall some definitions.
 	A polynomial $f(x) = a_nx^n + \cdots + a_0$ is \emph{primitive} if $a_n > 0$ and $\gcd(a_n, \cdots, a_0) = 1$.
 \end{defn}
 
-\begin{lem}
+\begin{lem}\label{l24:lem6}
 	Let $f \in \ZZ[x]$,  $\deg(f) > 0$, and  $a_n > 0$. Then, the following are equivalent:
 	 \begin{enumerate}
 		\item $f$ is primitive.
@@ -60,19 +60,25 @@ Let's recall some definitions.
 \end{dem}
 
 \begin{prop}
-	If $f(x) \in \ZZ[x]$ is prime, then it is irreducible.
+	$\ZZ[x]$ is an integral domain.
 \end{prop}
-\begin{dem}
-	Suppose that $f \in \ZZ[x]$ is prime and reducible, i.e., $f(x) = a(x)b(x)$, for some non-units $a, b \in \ZZ[x]$. 
 
-	Since $f$ is prime, $f$ divides $a(x)$ or $f(x)$ divides $b(x)$. Without loss of generality, assume that $f(x)$ divides $a(x)$. Thus, we can write $a(x) = f(x) c(x)$, for some $c\in \ZZ[x]$. Therefore, it holds that \[f(x) = f(x) c(x) b(x).\] Looking this as an equation sitting inside $\QQ[x]$, an integral domain, we can cancel $f(x)$. Thus, \[1 = c(x) b(x).\]
-	Since $1, c(x), b(x) \in \ZZ[x]$, it means that $b$ is a unit in $\ZZ[x]$, a contradiction.
+\begin{dem}
+	$\ZZ[x]$ is an integral domain, because, for all non-zero $f(x) = a_0 + \cdots + a_nx^n, g(x) = b_0 + \cdots + b_mx^m \in \ZZ[x]$, with $a_n, b_m \neq 0$, the coefficient of $x^{m+n}$ in $(fg)(x)$ is $a_nb_m \neq 0$; thus $fg \neq 0$.
 \end{dem}
 
-\begin{prop}
-	$n \in \ZZ$ is a prime as a polynomial in \ZZ[x], i.e., if $n$ is a factor of $p(x)q(x)$, then $n$ divides $p(x)$ or $n$ divides $q(x)$, if, and only if, $n$ is a prime in $\ZZ$. 
-\end{prop}
 
-\begin{prop}[Gauss' Lemma]
-	The product of primitive polynomails is primitive.
+\begin{prop}
+	Let $R$ be an integal domain. If $f \in R$ is prime, then it is irreducible.
 \end{prop}
+\begin{dem}
+	Suppose that $f \in R$ is prime and reducible, i.e., $f = ab$, for some non-units $a, b \in R$. 
+
+	Since $f$ is prime, $f$ divides $a$ or $f$ divides $b$. Without loss of generality, assume that $f$ divides $a$. Thus, we can write $a = f c$, for some $c\in R$. Therefore, it holds that \[f = f c b.\] 
+	Since $R$ is an integral domain, we can cancel $f$. Thus, \[1_R = c b.\]
+	This implies that $b$ is a unit in $R$, a contradiction.
+\end{dem}
+
+\begin{cor} \label{l24:cor9}
+	If $f(x) \in \ZZ[x]$ is prime, then it is irreducible.
+\end{cor}

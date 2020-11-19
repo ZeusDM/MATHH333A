@@ -1,0 +1,59 @@
+\lecture{25}{November 16, 2020}{Gauss' Lemma}
+
+We'll continue what we were doing in the last class.
+
+\begin{prop}\label{l25:prop1}
+	$n \in \ZZ$ is a prime as a polynomial in $\ZZ[x]$, i.e., if $n$ is a factor of $p(x)q(x)$, then $n$ divides $p(x)$ or $n$ divides $q(x)$, if, and only if, $n$ is a prime in $\ZZ$. 
+\end{prop}
+
+\begin{dem}
+	Suppose $n \in \ZZ$ is prime in $\ZZ[x]$. By \cref{l24:cor9}, $n$ is irreductible in $\ZZ[x]$: there are no $a, b \in \ZZ[x]$ such that $n = ab$ and neither $a$ nor $b$ is $\pm 1$. In particular, there are no $a, b \in \ZZ$ such that $n = ab$ ($a, b \neq \pm 1$), which is the usual definition of a prime in $\ZZ$.
+
+	Conversely, suppose taht $n$ is prime in $\ZZ$. Suppose that $n \mid fg$, for some  $f, g \in \ZZ[x]$. To show that $n$ is prime in $\ZZ[x]$, we need to show that $n\mid f$ or $n\mid g$.
+	
+	Let $\phi_n: \ZZ \to \ZZ/n\ZZ$ be the natural ring homomorphism between $\ZZ$ and $\ZZ/n\ZZ$ and let $\psi_n: \ZZ[x] \to (\ZZ/n\ZZ)[x]$ be the ring homomorphism defined by taking $\phi_n$ on each coefficient.
+	Note that, since $n$ is prime $\implies$ $\ZZ/n\ZZ$ is a field $\implies$ $(\ZZ/n\ZZ)[x]$ is an integral domain.
+	\begin{align*}
+		n \mid fg & \iff \psi_n(fg) = 0 \\
+				  & \iff \psi_n(f)\psi_n(g) = 0 & \text{($\psi_n$ is a ring homomorphism.)} \\
+				  & \iff \psi_n(f) = 0 \text{\ or\ } \psi_n(g) = 0 & \text{($\ZZ/n\ZZ[x]$ is an integral domain.)}\\
+				  & \iff n \mid f \text{\ or\ } n \mid g.
+	\end{align*}
+\end{dem}
+
+\begin{lem}[Gauss' Lemma]
+	The product of primitive polynomails is primitive.
+\end{lem}
+
+\begin{dem}
+	Let $f, g \in \ZZ[x]$ be primitive. Then the leading coefficient of $fg$ is the product of the leading coefficients of $f$ and $g$. Since $f, g$ are primitive, their leading coefficients are positive, which implies that the leading coefficient of $fg$ is also positive.
+
+	By \cref{l24:lem6}, for all prime numbers $p \in \ZZ$, it holds that $p \nmid f$ and $p \nmid g$.
+	By the contrapositive of \cref{l25:prop1}, this implies that $p \nmid fg$, for all prime numbers $p \in \ZZ$.  Again, by \cref{l24:lem6}, we have that $fg$ is primitive.
+\end{dem}
+
+\begin{lem}
+	Given $f(x) = a_0 + \cdots + a_nx^n \in \QQ[x]$, there exists a unique way to express $f(x) = c \cdot f_0(x)$, in which $c \in \QQ$ and $f_0(x)$ is primitive.
+	
+\end{lem}
+
+\begin{dem}[Existence]
+	Choose $d \in \ZZ$ such that $d\cdot f \in \ZZ[x]$, (e.g., choose $d$ to be the lowest common multiple of the denominators of the coefficients of $f$).
+	Factor out $\pm\gcd(da_0, \cdots, da_n)$ from $df$ (choose $+$ if the leading coefficient of $d\cdot f$ is positive, $-$ otherwise). Thus, 
+	\[f = \pm \frac{\gcd(da_0, \cdots, da_n)}{d}f_0(x).\]
+
+	In the equation above $f_0(x)$ is primitive because there is no prime $p$ such that $p$ divides $f_0$ (if there was, then it would have been factored out ``inside the $\gcd$''). 
+\end{dem}
+
+\begin{dem}[Uniqueness]
+	Suppose $f = cf_0 = c'f'_0$, for $c, c' \in \QQ$. We can multiply the equation for an apropriate integer (the lowest common multiple of the denominators of $c$ and $c'$) and conclude that, for some relatively prime $d, d' \in \ZZ$, it holds $df_0 = d'f'_ 0$.
+
+	If $d = d' = 1$, then $f_0 = f'_0$ and $c = c'$, so we're done!
+
+	Otherwise, without loss of generality, $d > 0$. Then there exists a prime $p$ such that $p \mid d$. Then, $p \mid df_ 0 = d'f_0$. Since $p$ is a prime number, by \cref{l25:prop1}, $p$ is a prime as a polynomial in $\ZZ[x]$. Therefore, $p \mid d'$ or $p \mid f'_0$. The former implies that $p \mid \gcd(d, d') = 1$, a contradiction; and the former implies that $f'_0$ is not primitive, also a contradiction. 
+\end{dem}
+
+\begin{cor}
+	Given $f \in \QQ[x]$, write uniquely $f = c \cdot f_0$, with $c \in \QQ$ and primitive $f_0 \in \ZZ[x]$	
+	Then, $f \in \ZZ[x] \iff c\in\ZZ$ and $c = \pm\gcd(a_0, a_1, \cdots, a_n)$.	
+\end{cor}
