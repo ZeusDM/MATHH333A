@@ -21,9 +21,9 @@ We'll continue what we were doing in the last class.
 	\end{align*}
 \end{dem}
 
-\begin{lem}[Gauss' Lemma]
+\begin{thm}[Gauss' Lemma]\label{l25:gauss}
 	The product of primitive polynomails is primitive.
-\end{lem}
+\end{thm}
 
 \begin{dem}
 	Let $f, g \in \ZZ[x]$ be primitive. Then the leading coefficient of $fg$ is the product of the leading coefficients of $f$ and $g$. Since $f, g$ are primitive, their leading coefficients are positive, which implies that the leading coefficient of $fg$ is also positive.
@@ -32,9 +32,8 @@ We'll continue what we were doing in the last class.
 	By the contrapositive of \cref{l25:prop1}, this implies that $p \nmid fg$, for all prime numbers $p \in \ZZ$.  Again, by \cref{l24:lem6}, we have that $fg$ is primitive.
 \end{dem}
 
-\begin{lem}
-	Given $f(x) = a_0 + \cdots + a_nx^n \in \QQ[x]$, there exists a unique way to express $f(x) = c \cdot f_0(x)$, in which $c \in \QQ$ and $f_0(x)$ is primitive.
-	
+\begin{lem}\label{l25:lem3}
+	Given $f(x) = a_0 + \cdots + a_nx^n \in \QQ[x]$, there exists a unique way to express $f(x) = c \cdot f_0(x)$, in which $c \in \QQ$ and $f_0(x)$ is primitive.	
 \end{lem}
 
 \begin{dem}[Existence]
@@ -53,7 +52,7 @@ We'll continue what we were doing in the last class.
 	Otherwise, without loss of generality, $d > 0$. Then there exists a prime $p$ such that $p \mid d$. Then, $p \mid df_ 0 = d'f_0$. Since $p$ is a prime number, by \cref{l25:prop1}, $p$ is a prime as a polynomial in $\ZZ[x]$. Therefore, $p \mid d'$ or $p \mid f'_0$. The former implies that $p \mid \gcd(d, d') = 1$, a contradiction; and the former implies that $f'_0$ is not primitive, also a contradiction. 
 \end{dem}
 
-\begin{cor}
+\begin{cor}\label{l25:cor5}
 	Given $f \in \QQ[x]$, write uniquely $f = c \cdot f_0$, with $c \in \QQ$ and primitive $f_0 \in \ZZ[x]$	
 	Then, $f \in \ZZ[x] \iff c\in\ZZ$ and $c = \pm\gcd(a_0, a_1, \cdots, a_n)$.	
 \end{cor}

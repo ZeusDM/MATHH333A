@@ -1,0 +1,43 @@
+\lecture{28}{November 30, 2020}{More field extensions}
+
+General scenarios in which field extensions arise:
+\begin{enumerate}
+	\item \textbf{``Less abstract'':} You have a field $K$ in mind, and an $F$ inside of $K$. The monic polynomial $f(x) \in F[x]$ is reducible over $F$ and there is a $\alpha \in K$ such that $f(\alpha) = 0$. Then $F(\alpha)$ is the smallest subfield of $K$ containing $F$ and $\alpha$.
+
+		For example, $K = \CC$, $F = \QQ$, $f(x) = x^2 + 1$,  $i \in \QQ$ is a root of $f$; then $\QQ(i)$ is a field extension of $\QQ$.
+
+	\item \textbf{``More abstract'':} You have a field $F$. The monic polynomial $f(x) \in F[x]$ is reducible over $F$. Then you can invent an abstract element $\alpha \not\in K$ and declare it to satisfy $f(\alpha) = 0$. We still can talk about $F(\alpha)$ is the smallest field containing $\alpha$ and $F$.
+\end{enumerate}
+
+I MISSED A SLIDE! ADD IT LATER.
+
+Recall $\phi_\alpha: F[x] \to K$, defined by $p(x) \mapsto p(\alpha)$. The image of this map is $F[\alpha]$. In general, this is a ring. Even more, it is an integral domain.
+
+The field of fractions of $F[\alpha]$ is $F(\alpha)$.
+
+\begin{prop}
+	Let $\alpha \in K$, $K / F$, $\alpha$ algebraic over $F$, $f$ the monic irreducible polynomial of $\alpha$ over $F$.
+	Consider $\psi_\alpha: F[x]/ \langle f \rangle \to F[\alpha]$, defined by $p(x) + \langle f \rangle \mapsto p(\alpha)$.
+
+	Then, $\psi_\alpha$ is an isomorphism.
+\end{prop}
+
+\begin{dem}
+	Let's recall the ring homomorphism $\phi_\alpha: F[x] \to K$. We can restict the domain to $\Im\phi_\alpha = F[\alpha]$, so that $\phi_\alpha: F[x] \to F[\alpha] \subset K$. This ought to be onto! Thus, by the first isomorphism theorem, $F[x]/\ker\phi_\alpha \approx F[\alpha]$.
+
+	However, $\ker\phi_\alpha = \{ p \in F[x] \mid p(\alpha) = 0\} = \langle f \rangle$. Thus $F[x]/ \langle f \rangle \approx F[\alpha]$.
+
+	Recall that the first isomorphism theorem says more than what we've said. It says that there exists an isomorphism $\psi: F[x]/ \langle f \rangle \to F[\alpha]$ such that $\psi(\pi(p)) = \phi_\alpha(p)$, where $\pi$ is the natural map between $F[x] \to F[x]/ \langle f \rangle$. This is exact the same $\psi_\alpha$ that we defined in the proposition!
+\end{dem}
+
+\begin{cor}
+	So, $F[\alpha]$ is a field. (Because $ \langle f \rangle$ is maximal.) Therefore, $F[\alpha] = F(\alpha)$.
+\end{cor}
+
+\begin{prop}[11.5.5 from Artin]
+	$F[\alpha]$ is a vector space over $F$ with basis $(1, \alpha, \dots, \alpha^{\deg(\alpha) - 1})$.
+\end{prop}
+
+\begin{prob}
+	Given $\alpha, \beta \in K$ , how to tell if $F(\alpha) = F(\beta)$?
+\end{prob}

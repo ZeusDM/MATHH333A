@@ -1,0 +1,66 @@
+\lecture{26}{November 18, 2020}{Irreducibility over $\ZZ[x]$ and $\QQ[x]$}
+
+\begin{thm}\label{l26:thm1}
+	Let $f_0 \in \ZZ[x]$ be primitive and $g \in \ZZ[x]$. Then, if $f_0 \mid g$ in $\QQ[x]$, then $f_0 \mid g$ in $\ZZ[x]$.
+	In other words, if $f_0h = g$, for some $h \in \QQ[x]$, then $h \in \ZZ[x]$.
+\end{thm}
+
+\begin{dem}
+	By \cref{l25:lem3}, $h = c \cdot h_0(x)$, in which $c \in \QQ$ and $h_0 \in \ZZ[x]$ is primitive. Therefore, \[g = f_0\cdot(c\cdot h_0) = c\cdot(f_0h_0).\]
+
+	Since $f_0h_0$ is a product of two primitive polynomials, by \hyperref[l25:gauss]{Gauss' Lemma}, $f_0h_0$ is primitive. Therefore, we have written $g$ as a product of a rational number and a primitive polynomial. Using \cref{l25:cor5}, $g \in \ZZ[x] \implies c \in \ZZ \implies h \in \ZZ[x]$.
+\end{dem}
+
+\begin{thm}\label{l26:thm2}
+	If $f, g \in \ZZ[x]$ share a common non-constant factor in $\QQ[x]$, then  $f, g$ also share a common non-constant factor in $\ZZ[x]$.
+\end{thm}
+
+\begin{dem}
+	Suppose $h \in \QQ[x]$ divides is a factor of $f$ and $g$. Use \cref{l25:lem3} to uniquely express $h = c \cdot h_0$, in which $c \in \QQ$ and $h_0 \in \ZZ[x]$ primitive. Since $h \mid f$ and $h \mid g$ in $\QQ[x]$, it also holds that $h_0 \mid f$ and $h_0 \mid g$ in $\QQ[x]$. By \ref{l26:thm1}, $h_0 \mid f$ and $h_0 \mid g$ in $\ZZ[x]$.
+\end{dem}
+
+\begin{thm}
+	Let $f(x) = a_0 + \cdots + a_nx^n \in \ZZ$, with $a_n > 0$. Then:
+	\begin{enumerate}
+		\item If $\deg(f) > 0$, $f$ is irreducible in $\ZZ[x]$ if, and only if,  $f$ is primitive and irreducible in $\QQ[x]$.
+		\item If $\deg(f) = 0$, $f$ is irreducible if, and only if, $f$ is a prime number (in $\ZZ$).
+	\end{enumerate}
+\end{thm}
+
+\begin{dem}[of $i$]
+	If $f$ is irreducible in $\QQ[x]$, then it is irreducible in $\ZZ[x]$.
+
+	Assume $f \in \ZZ[x]$ is irreducible in $\ZZ[x]$.
+
+	If $f$ is not primitive, then $\gcd(a_0, \cdots, a_n) > 1$. This means that we can write $f$ as a product of two non-units as follows \[f = \gcd(a_0, \dots, a_n) \cdot f_0,\] which implies that $f $ is reducible. a contradiction. So, $f$ is primitive.
+
+	Assume that  there are $g, h \in \QQ[x]$ such that $f = gh$. Write $g = c\cdot g_0$ and $h = c'\cdot h_0$, with $c, c' \in \QQ$ and $g_0, h_0 \in \ZZ[x]$ primitive. Therefore, \[f = (c\cdot g_0) (c' \cdot h_0) = (cc')\cdot(g_0h_0).\]
+
+	By \hyperref[Gauss' Lemma]{l25:gauss},  $g_0h_0$ is primitive. By \cref{l25:cor5}, $cc' = 1$. Thus, \[f = g_0h_0, \] which means $f$ is reducible in $\ZZ[x]$, a contradiction. Therefore, $f$ is irreducible in $\QQ[x]$.
+\end{dem}
+
+\begin{dem}[of $ii$]
+	If $f$ is a constant $n$, then
+	 \begin{align*}
+		 \text{$f$ is irreducible} & \iff \text{there are no $a, b \in \ZZ, a, b \neq \pm 1$ such that $n = ab$} \\
+		 & \iff \text{$n$ is prime.}
+	\end{align*}
+\end{dem}
+
+\begin{prop}
+	Let $f(x) = a_0 + \cdots + a_nx^n$ and $p$ be a prime number. Suppose $p \mid a_n$. Then, if  $\psi_p(f)$ is irreducible in $(\ZZ/p\ZZ)[x]$, then $f$ is also irreducible in $\ZZ[x]$.
+\end{prop}
+
+\begin{prop}[Rational root test]
+	If $bx - a$ is a factor of $f = c_0 + \cdots + c_nx^n \in \ZZ[x]$, then $a \mid c_0$ and $b \mid c_n$.
+\end{prop}
+
+\begin{prop}[Degree 2 or 3 test]
+	If $\deg f = 2$ or $3$, then $f$ is reducible in $\QQ[x]$ $\implies$ $f$ has a root in $\QQ$.
+\end{prop}
+
+\begin{prop}[Eisenstein's criterion]\label{l26:eisenstein}
+	Let $f(x) = c_0 + \cdots c_nx^n \in \ZZ[x]$.
+	Suppose there exists a prime $p$ such that $p \nmid c_n$, $p \mid c_{n-1}, \dots, c_0$, and  $p^2 \nmid c_0$.
+	Then, $f$ is irreducible in $\QQ[x]$.
+\end{prop}

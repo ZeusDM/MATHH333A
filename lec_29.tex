@@ -1,0 +1,34 @@
+\lecture{29}{December 02, 2020}{Quadractic Extensions}
+
+\begin{prop}
+	Given $K/F$, $K$ is a vector space over $F$.
+\end{prop}
+
+\begin{defn}[Degree of $K/F$]
+The \emph{degree of $K/F$}, denoted by $[K:F]$, is the dimension of $K$ as a vector space over $F$.
+\end{defn}
+
+\begin{defn}
+	Some nomenclature:
+	\begin{enumerate}[label = --]
+		\item $K/F$ is called a finite extensions if $[K:F] < \infty$.
+		\item If $[K:F] = 2$, we call $K/F$ a quadractic extension.
+		\item If $[K:F] = 3$, we call $K/F$ a cubic extension.
+	\end{enumerate}
+\end{defn}
+
+\begin{prop}
+	$K/F$ satisfies $[K : F] = 1$ if, and only if, $K = F$. Similarly, $\alpha \in K$ has degree $1$ over $F$ if, and only if, $\alpha \in F$.
+\end{prop}
+
+\begin{prop}
+	Suppose $F$ is a field with characteristic different than $2$, i.e., $1 + 1 \neq 0$. Suppose $K/F$ and $[K:F] = 2$, i.e., suppose  $K$ is a quadratic extension of $F$. Then, there exists $\delta \in K, \delta \in F$ and $\delta^2 \in F$. In that case, $F(\delta) = K$, and $\delta$ ``is a square root'' of an element of $F$.
+\end{prop}
+
+\begin{dem}
+	Since $[K : F] = 2$, there exists some $\alpha \in K, \alpha \not\in F$. Therefore, $(1, \alpha)$ are linear independent over $F$ (if one is multiple of the other, than $\alpha$ would be in $F$). Since the dimension is $2$, $(1, \alpha)$ is a basis of $K$ over $F$.
+
+	Consider $\alpha^2 \in K$. It can be written as \[\alpha^2 = x\alpha + y,\] for some $x, y \in F$. This implies that \[\left(\alpha - \frac{x}{1+1}\right)^2 = y - \left(\frac{x}{1+1}\right)^2 \in F.\]
+
+	Thus, $\delta = \alpha - \frac{x}{1+1}$ is not in $F$ (if it was in $F$, then $\alpha$ would be in $F$.), but $\delta^2 \in F$. Again, for the same reasons, $(1, \delta)$ is a basis of $K$, which implies $F(\delta) = K$.
+\end{dem}

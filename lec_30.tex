@@ -1,0 +1,42 @@
+\lecture{30}{December 04, 2020}{Continuing Quadractic Extensions}
+
+One question arose: What the heck are we doing?
+
+\begin{enumerate}
+	\item mou learn a lot about a group by understanding its subgroups (especially, the normal subgroups; to use the first isomorphism theorem).
+	\item You learn a lot about a group by undestanding its ideals (it's all about the first isomorphism theorem).
+	\item You learn a lot about a field by undestanding its subfields (field extensions are useful here).
+\end{enumerate}
+
+Continuing:
+
+\begin{thm}
+	Let $F \subset K \subset L$ be fields. Then, \[[L : F] = [L : K][K : F].\]
+\end{thm}
+
+\begin{dem}
+	Let $\mathcal{B} = (\beta_1, \dots, \beta_n)$ be a basis for $L$ as a $K$-vector space; and let $\mathcal{A} = (\alpha_1, \dots, \alpha_m)$ be a basis for  $K$ as a $F$-vector space. We'll show that $\mathcal{C} = (\alpha_i \beta_j)$ is a basis for $L$ as a $F$-vector space.
+
+	\begin{enumerate}
+		\item $(\alpha_i \beta_j)$ is a spanning set for $L$ over $F$.
+
+			Let $\ell \in L$. Write $\ell$ as a linear combination of $\beta_j$ with coefficients in $K$.
+
+			For each coefficient in $K$, write it as a linear combination of $\alpha_i$ with coefficients in $F$.
+
+			Then, we have expressed $\ell$ as a linear combination of $\alpha_i \beta_j$ with coefficients in $F$.
+
+		\item $(\alpha_i \beta_j)$  are linearly independent over $F$.
+
+			Assume there is a linear combination of $\alpha_i \beta_j$ with coefficients in $F$ that sums to $0$.
+
+			Thus, we can see this as a linar combination of $\beta_j$ with coefficients in $K$ that sums to $0$.
+
+			Since $\mathcal{B}$ is linearly independent, each coefficient (which are in $K$) must be $0$.
+
+			Note that those coefficients in $K$ are themselves linear combinations of $\alpha_i$ with coefficients in $F$.
+			Since $\mathcal{A}$ is linearly independent, those coefficients in $F$ must all be $0$.
+
+			Therefore, $\mathcal{C}$ is linearly independent over $F$.
+	\end{enumerate}
+\end{dem}
