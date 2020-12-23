@@ -1,0 +1,45 @@
+\lecture{33}{December 11, 2020}{Finite Fields}
+
+A key idea is to note that the natural map $F[x] \to F[x]/ \langle f \rangle$ is one-to-one on the constant polynomials, namely $F$. Thus, in some sense, $F \subset F[x]/ \langle f \rangle$.
+
+\begin{lem}
+	Let $F$ be a field, and $f(x) \in F[x]$ irreducible over $F$. Then, in the field $K = F[x] / \langle f \rangle$, the element  $\pi(x)$ is a root of $f$. \emph{(We understand $f$ as being over $F[x] / \langle f \rangle$, since $F \subset F[x]/ \langle f \rangle$.)}
+\end{lem}
+
+\begin{defn}
+	Let $F$ be a field, and a polynomial $f \in F[x]$ \emph{splits completely} over some field extension $K$ if $f$ factors into linear pieces with coefficients in $K$.
+\end{defn}
+
+\begin{lem}
+	Given a field $F$ and a monic polynomial $f$ over $F$, $\deg F > 0$, then there exists a field extension $K$ in which $f$ splits completely.
+\end{lem}
+
+\begin{sk}
+	Induction on $\deg f$.
+\end{sk}
+
+\subsection{Finite fields}
+
+\begin{thm}
+	There exists a field of order $p^r$, for any prime $p$ and non-negative integer $r$. Any two fields of order $p^r$ are isomorphic.
+\end{thm}
+
+\begin{thm}
+	If $F$ is a finite field, then $|F| = q$, for some prime $p$ and non-negative integer $r$.
+\end{thm}
+
+\begin{thm}
+	If $|F| = p^r$, then every element of $F$ is a root of $x^{p^r} - x$.
+\end{thm}
+
+\begin{thm}
+	The irreducible factors of $x^{p^r} - x$ in $\ZZ/p\ZZ$ are exactly the irreducible polynomials of $F[x]$, $|F| = p^r$, satisfying the property that their degree divider $r$.
+\end{thm}
+
+\begin{thm}
+	Let $F^\times$ be the multiplicative group of units in $F$. It is a cyclic group of order $p^r - 1$.
+\end{thm}
+
+\begin{thm}
+	If $|F| = p^r$, then $F$ has a subfield of order $p^k$, if $k \mid r$
+\end{thm}
