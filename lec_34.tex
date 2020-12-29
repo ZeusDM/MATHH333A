@@ -1,0 +1,53 @@
+\lecture{34}{December 20, 2020}{Supplementary Lecture I}
+
+The goal today is to prove the following theorem:	If $K / F$ is a finite field extension, then there is $\alpha \in K$ such that $K = F(\alpha)$.
+
+First, some background work on polynomials:
+\begin{prop}
+	Let $f(x), g(x) \in F[x], f(x) \neq 0$ and $K/F$ a field extension. 
+	\begin{enumerate}[label = (\alph*)]
+		\item $F[x]$ is a subring of $K[x]$, so any computation in  $F[x]$ is valid in $F[x]$. 
+		\item Euclidean division of $g(x)$ by $f(x)$ gives the same answer in $F[x]$ or in  $K[x]$.
+		\item $f(x)$ divides $g(x)$ in $K[x]$ $\iff$  $f(x)$ divides $g(x)$ in $F[x]$.
+		\item The monic greatest common denominator, $d(x)$, of $f(x)$ and $g(x)$ is the same, whether computed in $F[x]$ or in $K[x]$.
+		\item If $f(x)$ and $g(x)$ have a common root in $K$, then they are not relatively prime in $F[x]$.
+
+			Conversely, if $f(x)$ and $g(x)$ are not relatively prime in $F[x]$, there exists an extension of  $F$ in which they have a common root.
+		\item If $f(x)$ is irreducible over $F$, and $f(x), g(x)$ have a common root in $K$, then $f(x)$ divides $g(x)$ in $F[x]$.
+	\end{enumerate}
+\end{prop}
+
+\begin{defn}[Derivative]
+	If $f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_0$ in $F[x]$, its \emph{derivative} is the polynomial \[
+		f'(x) = na_nx^{n-1} + (n-1)a_n{n-1}x^{n-2} + \cdots + a_1,
+	\]
+	in which you interpret the integer $k$ as $\underbrace{1_F + 1_F + \cdots + 1_F}_\text{$k$ times}$.
+\end{defn}
+
+\begin{lem}
+	The usual rules of differentiation apply, e.g. product rule.
+\end{lem}
+
+\begin{lem}
+	Let $f(x) \in F[x]$. An element $\alpha$ in an extension $K$ of $F$ is a multiple root, meaning $(x - \alpha)^2$ divides $f(x)$ $\iff$ $\alpha$ is a root of $f'(x)$. 	
+\end{lem}
+
+\begin{prop}
+	Let $f(x) \in F[x]$. Then there exists a field extension $K$ of $F$ in which $f(x)$ has a multiple root if, and only if, $f(x)$ and $f'(x)$ are not relatively prime.
+\end{prop}
+
+\begin{lem}
+	Let $f(x)$ be a irreducible polynomial over $F$.
+	\begin{enumerate}[label = (\alph*)]
+		\item Then, $f$ has no multiple roots in any field extension \emph{unless} $f' = 0$.
+		\item In characteristic $0$, $f$ has no multiple root over any field extension.
+	\end{enumerate}
+\end{lem}
+
+\begin{defn}[Primitive Element]
+	Let $K / F$ be a field extension. An element $\alpha \in K$ is called \emph{primitive} if $K = F(\alpha)$.
+\end{defn}
+
+\begin{thm}[Primitive Element Theorem]\label{l34:pet}
+	Let $F$ be a field of characteristic $0$, and let $K / F$ be a finite field extension. Then, there exists a primitive element in $K$.
+\end{thm}

@@ -1,0 +1,137 @@
+\lecture{36}{December 29, 2020}{Supplementary Lecture III}
+\subsection{Galois Theory}
+
+Galois theory presents a way to understand the structure of all subfields of a given field, $F$, in terms of their ``symmetries''.
+
+\begin{defn}[Automorphism and Group of Automorphisms]
+	An \emph{automorphism} is an isomorphism of a group/ring/field to itself.
+
+	$\Aut(\bullet)$ denotes the group of automorphisms of a group/ring/field to itself, under the operation of composition.
+\end{defn}
+
+Let $R$ be a ring, and $R[u_1, \dots, u_n]$ be the polynomial ring in $n$ variables.
+
+Given $f \in R[u_1, \dots, u_n]$, $\sigma \in S_n$, define \[
+	\sigma(f) = f(u_{\sigma(1)}, \dots, u_{\sigma(n)}).
+\]
+
+This new map, from $R[u_1, \dots, u_n]$ to itself, which we will also denote by $\sigma$, is an automorphism of  $R[u_1, \dots, u_n]$.
+
+\begin{defn}[Symmetric Polynomial]
+	A \emph{symmetric polynomial} $f \in R[x]$ is one satisfying $\sigma(f) = f$, for all $\sigma \in S_n$.
+\end{defn}
+
+\begin{prop}
+	A polynomial $f$ is symmetric if, and only if, two monomials in the same $S_n$-orbit, i.e. two monomials such that one can be sent to the other by applying a permutation in $S_n$, e.g. $u_1u_2^2$ and  $u_2u_3^2$, have the same coefficient in $g$. 
+\end{prop}
+
+\begin{defn}[Orbit Sum]	
+	An orbit sum is the sum of monomials in a given $S_n$ orbit.
+\end{defn}
+
+\begin{exmp}[Orbit Sum]
+	One orbit of $R[u_1, u_2, u_3]$ is  $\{ u_1, u_2, u_3\}$; its orbit sum is $u_1 + u_2 + u_3$. 
+
+	Another orbit is $\{u_1u_2u_3\}$; its orbit sum is $u_1u_2u_3$.
+\end{exmp}
+
+\begin{prop}
+	The symmetric polynomials form a ``subspace''\footnote{This is not a vector space, because $R$ is not a field; but is some sort of analogous when $R$ is a ring.} of $R[u_1, \dots, u_n]$ over $R$. The orbit sums for a basis for this subspace.
+\end{prop}
+
+\begin{defn}[Elementary Symmetric Polynomials]
+	The \emph{elementary symmetric polynomials for $n$ variables} are:
+	\begin{align*}
+		s_1 &= \sum^{n}_{i=1} u_i;\\
+		s_2 &= \sum_{i < j} u_iu_j;\\
+		&\ \vdots\\
+		s_n &= u_1 u_2 \cdots u_n.
+	\end{align*}
+\end{defn}
+
+Let $P(x) \in \left( R[u_1, \dots, u_n] \right)[x] $ be defined by \[
+	P(x) = (x-u_1)(x-u_2)\cdots(x-u_n).
+\]
+
+The coefficients of $P(x)$ are the elementary symmetric polynomials. Explicitely, \[
+	P(x) = x^n - s_1x^{n-1} + s_2x^{n-2} + \cdots + (-1)^n s_n.
+\]
+
+\begin{lem}[Girard's Relations]\label{l37:lem7}
+Suppose $f$ is a monic polynomial in $F[x]$; write it as  \[
+	f(x) = x^n - a_1 x^{n-1} + a_2 x^{n-2} + \cdots + (-1)^n a_n.
+\]
+
+Suppose $f$ can be factored (perhaps in a splitting field over $F$) as $f(x) = (x - \alpha_1)(x - \alpha_2)\cdots(x - \alpha_n)$. Then, \[
+	a_i = s_i(\alpha_1, \alpha_2, \dots, \alpha_n).
+\]
+\end{lem}
+
+\begin{thm}[Symmetric Polynomials Theorem]
+	Every symmetric polynomial $g(u_1, \dots, u_n) \in R[u_1, \dots, u_n]$ can be written in a unique quay as a polynomial in the elementary symmetric polynomials, i.e., there exists a unique polynomial $G(z_1, \dots, z_n) \in R[z_1, \dots, z_n]$ such that $g(u_1, \dots, u_n)$ is obtained by substituting $z_i \mapsto s_i$ in $G$,  \[
+		g(u_1, \dots, u_n) = G(s_1, \dots, s_n).
+	\]
+\end{thm}
+
+\begin{sk}
+	Induction on the largest monomial, by lexicographic order on the exponents.
+\end{sk}
+
+\begin{cor}\label{l37:cor9}
+	Suppose $f(x) \in F[x]$, and $f(x)$ splits completely over $K$, with roots $\alpha_1, \alpha_2, \dots, \alpha_n$.
+
+	Let $g(u_1, \dots, u_n) \in F[u_1, \dots, u_n]$ be a symmetric polynomial. Then, $g(\alpha_1, \dots, \alpha_n) \in F$.
+\end{cor}
+
+\begin{cor}\label{l37:cor10}
+	Let $p_1(u_1, \dots, u_n) \in R[u_1, \dots, u_n]$, and $\{p_1, \dots, p_k\}$ the  $S_n$-orbit of $p_1$.\footnote{Note that $k \mid n!$.}
+
+	If $h(w_1, \dots, w_k) \in R[w_1, \dots, w_k]$ is symmetric, then $h(p_1, \dots, p_k) \in R[u_1, \dots, u_n]$ is symmetric.
+\end{cor}
+
+\begin{defn}[Splitting Fields, again]
+	Let $f \in F[x]$, not necessarily irreducible. A \emph{splitting field} for $f$ is an extension $K / F$ such that
+	\begin{enumerate}
+		\item $f$ splits completely in $K$, i.e., $f(x) = (x - \alpha_1)\cdots(x - \alpha_n)$, $\alpha_i \in K$. 
+		\item $K = F(\alpha_1, \dots, \alpha_n)$.
+	\end{enumerate}
+\end{defn}
+
+\begin{lem}
+	Let $F \subset L \subset K$ be fields, and $K$ is a splitting field of $f \in F[x]$. Then,  $K$ is a splitting field of $f$ over $L$.
+\end{lem}
+
+\begin{lem}
+	Every polynomial over $F$ has a splitting field.
+\end{lem}
+
+\begin{lem}
+	A splitting field is a finite extension of $F$, and every finite extension is contained in a splitting field.
+\end{lem}
+
+\begin{thm}[Splitting Theorem]
+	Let $K/F$ be a field extension, with  $K$ being the splitting field of $f(x)$ over $F$. Then, if $g(x) \in F[x]$ is irreducible over $F$ and  $g(x)$ has at least one root in $K$, then $g$ splits completely in $K$.
+\end{thm}
+
+\begin{dem}
+	Let $f, g$ be as above. We are assuming that there exists $\beta_1 \in K$ such that $g(\beta_1) = 0$. Without loss of generality, $g$ is monic. Since $g$ is irreducible, $g$ is irreducible, $g$ is the minimal polynomial for $\beta_1$ over $F$.
+
+	$K = F(\alpha_1, \dots, \alpha_n)$, with $\alpha_i$'s the roots of $f$, implies that every element of $K$ can be written as a polynomial in $\alpha_i$'s, with coefficients in $F$, i.e., there exists $p_1 \in F[u_1, \dots, u_n]$ such that $p_1(\alpha_1, \dots, \alpha_n) = \beta_1$.
+
+	Let $\{p_1, \dots, p_k\}$ be the $S_n$-orbit of $p_1$.
+
+	Let $\beta_j = p_j(\alpha_1, \dots, \alpha_n)$. So $\beta_1, \dots, \beta_k \in K$.
+
+	Let $h(x) \in K[x]$ be defined by \[
+		h(x) = (x - \beta_1) \cdots (x - \beta_k). 
+	\]
+
+	By \cref{l37:cor10}, $s_i(p_1, \dots, p_k) \in F[u_1, \dots, u_n]$ is a symmetric polynomial.
+	Then, by \cref{l37:cor9}, $s_i(\beta_1, \dots, \beta_n) \in F$.
+	Lastly, by \cref{l37:lem7}, the coefficients of $h(x)$ are \[
+		s_i(\beta_1, \dots, \beta_k) \in F,
+	\]
+	which means that $h(x) \in F[x]$.
+
+	Therefore, since $\beta_1$ is a root of $h(x) \in F[x]$, the irreducible polynomial of $\beta_1$, which is  $g$, divides (over $F$) $h$, which splits completely over $K$. This implies that $g$ splits completely $K$.
+\end{dem}
